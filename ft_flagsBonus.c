@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_flagsBonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbuchet <mbuchet@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/03 15:49:22 by mbuchet           #+#    #+#             */
+/*   Updated: 2022/02/03 15:49:22 by mbuchet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
 char	*ft_strchr(const char *str, int c)
 {
 	int	i;
@@ -15,6 +29,7 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str + i);
 	return (0);
 }
+
 int	ft_space_flag(va_list ap, const char *s, int *count)
 {
 	int		i;
@@ -81,6 +96,7 @@ void	ft_format_detect(char flag, va_list ap, int *count)
 	else
 		*count += write(1, &flag, 1);
 }
+
 //printf with flags
 int	ft_printf(const char *s, ...)
 {
