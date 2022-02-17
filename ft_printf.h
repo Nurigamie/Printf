@@ -15,16 +15,16 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_lenint(int nb);
 int		ft_strlen(const char *str);
-void	ft_pustr(char*str, int *count);
+void	ft_putstr(char*str, int *count);
 void	ft_putnbr(int nb, int *count);
-void	ft_putunsigned(unsigned int nb, char base, int count);
-void	ft_long(unsigned long int nb, int *count);
+void	ft_putunsigned(unsigned int nb, char base, int *count);
+void	ft_putpointer(unsigned long int nb, int *count);
 void	ft_putchar(char c, int *count);
+int		ft_printf_b(const char *s, ...);
 
 # define BASE ((base == 'u') ? 10 : 16)
 # define SPACE ' '

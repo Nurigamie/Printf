@@ -50,7 +50,7 @@ int	ft_space_flag(va_list ap, const char *s, int *count)
 		return (ft_putstr(str, count), i);
 	}
 	j = va_arg(ap, int);
-	nb -= ft_intlen(j) + 1;
+	nb -= ft_strlen(j) + 1;
 	while (nb-- > 0)
 		*count += write(1, " ", 1);
 	if (j >= 0)
@@ -73,9 +73,9 @@ void	ft_bonus_detect(const char *flag, va_list ap, int *count)
 	if (*flag == SHARP)
 	{
 		unb = va_arg(ap, unsigned int);
-		if (flag[1] == HEXALOWER && unb != 0)
+		if (flag[1] == HEXALO && unb != 0)
 			*count += write(1, "0x", 2);
-		if (flag[1] == HEXAUPPER && unb != 0)
+		if (flag[1] == HEXAUP && unb != 0)
 			*count += write(1, "0X", 2);
 		ft_putunsigned(unb, flag[1], count);
 	}
@@ -89,16 +89,16 @@ void	ft_format_detect(char flag, va_list ap, int *count)
 		ft_putstr(va_arg(ap, char *), count);
 	else if (flag == INTEGER || flag == DECIMAL)
 		ft_putnbr(va_arg(ap, int), count);
-	else if (flag == UNSIGNED || flag == HEXAUPPER || flag == HEXALOWER)
+	else if (flag == UNSIGNED || flag == HEXAUP || flag == HEXALO)
 		ft_putunsigned(va_arg(ap, unsigned int), flag, count);
-	else if (flag == ADDRESS)
-		ft_putad(va_arg(ap, unsigned long int), count);
+	else if (flag == POINTER)
+		ft_putpointer(va_arg(ap, unsigned long int), count);
 	else
 		*count += write(1, &flag, 1);
 }
 
 //printf with flags
-int	ft_printf(const char *s, ...)
+int	ft_printf_b(const char *s, ...)
 {
 	va_list	ap;
 	int		i;

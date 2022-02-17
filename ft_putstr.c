@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_pustr(char*str, int *count)
+void	ft_putstr(char *str, int *count)
 {
 	if (!str)
 		*count = *count + write(1, WRITE_NULL, 6);

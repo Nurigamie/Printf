@@ -10,41 +10,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	ft_printf.c/
-		ft_putchar.c/
-		ft_putnbr.c/
-		ft_putpointer.c/
-		ft_putstr.c/
-		ft_putunsigned.c/
-		ft_strlen.c/
+SRCS =	ft_printf.c \
+		ft_putchar.c \
+		ft_putnbr.c \
+		ft_putpointer.c\
+		ft_putstr.c \
+		ft_putunsigned.c\
+		ft_strlen.c\
 
-SRCSB = ft_lenint.c/
-		ft_flagsBonus.c
-
+# **************************************************************************** #
 
 NAME	= ft_printf.h
+OBJS = $(SRCS:.c=.o)
 CC                = gcc
 RM                = rm -f
 CFLAGS            = -Wall -Wextra -Werror
-OBJS_DIR = obj/
-OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJSDIR), $(OBJS))
 OBJSB  = $(SRCSB:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
+
+# **************************************************************************** #
+
+%.o: %.c
+	gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@ar r $(NAME) $(OBJS)
 
-
+# **************************************************************************** #
 all:	$(NAME)
 
 clean:
 	$(RM) $(OBJS) 
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(OBJSB)
 
 re:	fclean all
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+bonus: $(OBJSB)
+	@ar r $(NAME) $(OBJSB)
