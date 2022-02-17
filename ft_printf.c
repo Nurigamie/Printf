@@ -49,3 +49,7 @@ int	ft_printf(const char *str, ...)
 	}
 	return (va_end(ap), nb);
 }
+int main()
+{
+	ft_printf(   "2) Nombre signe [i] : {%i}\n", 42);
+}

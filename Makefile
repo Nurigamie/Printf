@@ -20,7 +20,7 @@ SRCS =	ft_printf.c \
 
 # **************************************************************************** #
 
-NAME	= ft_printf.a
+NAME	= libftprintf.a
 INCLUDES	= ft_printf.h
 CC		= gcc
 RM		= rm -f
