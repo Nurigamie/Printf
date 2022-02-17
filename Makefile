@@ -20,20 +20,21 @@ SRCS =	ft_printf.c \
 
 # **************************************************************************** #
 
-NAME	= ft_printf.h
-OBJS = $(SRCS:.c=.o)
-CC                = gcc
-RM                = rm -f
-CFLAGS            = -Wall -Wextra -Werror
-OBJSB  = $(SRCSB:.c=.o)
+NAME	= ft_printf.a
+INCLUDES	= ft_printf.h
+CC		= gcc
+RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror
+OBJS	= $(SRCS:.c=.o)
+OBJSB	= $(SRCSB:.c=.o)
 
 # **************************************************************************** #
 
-%.o: %.c
-	gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
-
 $(NAME): $(OBJS)
 	@ar r $(NAME) $(OBJS)
+
+%.o: %.c
+	gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 # **************************************************************************** #
 all:	$(NAME)

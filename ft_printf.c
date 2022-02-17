@@ -35,7 +35,8 @@ int	ft_printf(const char *str, ...)
 	int		nb;
 
 	nb = 0;
-	i = -1;
+	i = 0;
+	va_start(ap, str);
 	if (str == NULL)
 		return (EXIT_ERROR);
 	while (str)
@@ -44,7 +45,7 @@ int	ft_printf(const char *str, ...)
 			ft_format(str[i], ap, &nb);
 		else
 			nb += write(1, str + i, 1);
-	i++;
+		i++;
 	}
 	return (va_end(ap), nb);
 }
