@@ -20,8 +20,10 @@ void	ft_format(char c, va_list ap, int *nb)
 		ft_putstr(va_arg(ap, char *), nb);
 	else if (c == 'i' || c == 'd')
 		ft_putnbr(va_arg(ap, int), nb);
-	else if (c == 'u' || c == 'X' || c == 'x')
+	else if (c == 'X' || c == 'x')
 		ft_putunsigned(va_arg(ap, unsigned int), c, nb);
+	else if (c == 'u')
+		ft_putnbu(va_arg(ap, unsigned int), nb);
 	else if (c == 'p')
 		ft_putpointer(va_arg(ap, unsigned long int), nb);
 	else
@@ -39,7 +41,7 @@ int	ft_printf(const char *str, ...)
 	va_start(ap, str);
 	if (str == NULL)
 		return (EXIT_ERROR);
-	while (str)
+	while (str[i])
 	{
 		if (str[i] == '%')
 			ft_format(str[i], ap, &nb);
@@ -47,5 +49,6 @@ int	ft_printf(const char *str, ...)
 			nb += write(1, str + i, 1);
 		i++;
 	}
-	return (va_end(ap), nb);
+	va_end(ap);
+	return (nb);
 }

@@ -6,7 +6,7 @@
 /*   By: mbuchet <mbuchet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:48:52 by mbuchet           #+#    #+#             */
-/*   Updated: 2022/02/21 11:52:24 by mbuchet          ###   ########.fr       */
+/*   Updated: 2022/02/21 16:43:54 by mbuchet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+/*int*/
 int		ft_printf(const char *str, ...);
+
+/*size_t*/
 size_t		ft_strlen(const char *str);
+
+/*void*/
 void	ft_putstr(char*str, int *count);
 void	ft_putnbr(int nb, int *count);
 void	ft_putunsigned(unsigned int nb, char base, int *count);
 void	ft_putpointer(unsigned long int nb, int *count);
 void	ft_putchar(char c, int *count);
 
-
+/*macros*/
 # define BASE ((base == 'u') ? 10 : 16)
 # define SPACE ' '
 # define PLUS '+'
