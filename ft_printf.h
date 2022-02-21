@@ -6,7 +6,7 @@
 /*   By: mbuchet <mbuchet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:48:52 by mbuchet           #+#    #+#             */
-/*   Updated: 2022/02/17 17:21:57 by mbuchet          ###   ########.fr       */
+/*   Updated: 2022/02/21 11:52:24 by mbuchet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@ void	ft_putchar(char c, int *count);
 # define BASE ((base == 'u') ? 10 : 16)
 # define SPACE ' '
 # define PLUS '+'
-# define STRING 's'
-# define CHAR 'c'
-# define UNSIGNED 'u'
-# define POINTER 'p'
-# define HEXALO 'x'
-# define HEXAUP 'X'
-# define DECIMAL 'd'
-# define INTEGER 'i'
-# define PERCENT '%'
 # define SHARP '#'
 # define EXIT_ERROR -1
 # define STR_HEXA_LOWER "0123456789abcdef"
